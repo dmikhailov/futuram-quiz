@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: info
+        run: echo "{{ secrets.NPM_TOKEN }}"
+
       - name: Authenticate with npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
