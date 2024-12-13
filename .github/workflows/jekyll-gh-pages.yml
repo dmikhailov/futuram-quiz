@@ -43,7 +43,9 @@ jobs:
         run: npm ci --dry-run
 
       - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
 
       - name: Check .npmrc content
         run: cat ~/.npmrc || echo ".npmrc file is missing"
