@@ -41,6 +41,12 @@ jobs:
 
       - name: Test npm install
         run: npm ci --dry-run
+
+      - name: Debug npm auth2
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          cat ~/.npmrc
+          npm whoami
         
       - name: Authenticate with npm
         run: |
