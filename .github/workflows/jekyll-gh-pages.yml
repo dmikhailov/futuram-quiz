@@ -45,6 +45,7 @@ jobs:
       - name: Debug npm auth2
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm config fix
           cat ~/.npmrc
           npm whoami
         
