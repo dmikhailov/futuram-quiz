@@ -51,6 +51,7 @@ jobs:
         run: |
           cat ~/.npmrc || echo ".npmrc file is missing"
           npm whoami
+          npm npm get registry 
 
       - name: Doctor
         run: npm doctor
