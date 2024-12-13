@@ -30,6 +30,13 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          
+      - name: Auth setup
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "always-auth = true" >>  ~/.npmrc    
+          
       - run: npm i
       - run: npm run build
 
