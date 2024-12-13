@@ -43,8 +43,8 @@ jobs:
 
       - name: Auth setup
         run: |
-          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
           echo "always-auth = true" >>  ~/.npmrc
 
       - name: Who Am I
