@@ -47,11 +47,6 @@ jobs:
           echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
           echo "always-auth = true" >>  ~/.npmrc
 
-      - name: Who Am I
-        run: |
-          cat ~/.npmrc || echo ".npmrc file is missing"
-          npm whoami
-
       - name: Doctor
         run: npm doctor
 
