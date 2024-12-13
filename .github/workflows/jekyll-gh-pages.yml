@@ -45,7 +45,7 @@ jobs:
       - name: Authenticate with npm
         run: |
           npm config set registry https://registry.npmjs.org/
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=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" >> ~/.npmrc
           echo "always-auth = true" >>  ~/.npmrc
 
       - name: Check .npmrc content
