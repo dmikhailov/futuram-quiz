@@ -1,0 +1,52 @@
+[
+  {
+    "text": "What is the name of Fry's one-eyed love interest?",
+    "options": [
+      "Leela",
+      "Amy",
+      "Linda",
+      "Zoidberg"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "text": "What is the name of the evil robot who runs on alcohol?",
+    "options": [
+      "Calculon",
+      "Bender",
+      "Clamps",
+      "Flexo"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What year does Fry get frozen in?",
+    "options": [
+      "1999",
+      "2000",
+      "3000",
+      "3010"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What is the name of the delivery company in Futurama?",
+    "options": [
+      "Planet Express",
+      "Galactic Delivery",
+      "Interstellar Couriers",
+      "Space Freight"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "text": "Who is the founder of Planet Express?",
+    "options": [
+      "Professor Farnsworth",
+      "Mom",
+      "Zapp Brannigan",
+      "Nibbler"
+    ],
+    "correctAnswer": 0
+  }
+]
