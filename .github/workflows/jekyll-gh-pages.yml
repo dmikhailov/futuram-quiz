@@ -26,11 +26,18 @@ jobs:
         with:
           node-version: 22
 
-      - name: info
-        run: echo "{{ secrets.NPM_TOKEN }}"
+      - name: Debug NPM Token
+        run: echo "NPM_TOKEN is set to: ${NPM_TOKEN}" || echo "NPM_TOKEN is missing"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
       - name: Authenticate with npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Check .npmrc content
+        run: cat ~/.npmrc || echo ".npmrc file is missing"
+
 
       - name: Install dependencies
         run: npm install
