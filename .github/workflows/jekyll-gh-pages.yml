@@ -25,41 +25,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          
-      - name: Update npm
-        run: npm install -g npm@latest
-
-      - name: Reset npm environment
-        run: |
-          rm -rf ~/.npmrc
-          npm cache clean --force
-
-      - name: Auth setup
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
-          echo "always-auth = true" >>  ~/.npmrc
-
-      - name: Who Am I
-        run: |
-          cat ~/.npmrc || echo ".npmrc file is missing"
-          npm whoami
-
-      - name: Doctor
-        run: npm doctor
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
+          node-version: 20
+          cache: 'npm'
+      - run: npm i
+      - run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
