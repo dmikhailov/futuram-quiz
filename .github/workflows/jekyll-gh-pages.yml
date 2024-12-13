@@ -29,12 +29,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
-          
-      - name: Downgrade npm to 10.9.2
-        run: npm install -g npm@10.9.2
+          node-version: 18
 
       - name: Reset npm environment
         run: |
