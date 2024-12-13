@@ -54,6 +54,9 @@ jobs:
       - name: Doctor
         run: npm doctor
 
+      - name: Who am I
+        run: npm whoami
+
       - name: Install dependencies
         run: npm install
 
