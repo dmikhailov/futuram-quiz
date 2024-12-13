@@ -36,33 +36,17 @@ jobs:
       - name: Downgrade npm to 10.9.2
         run: npm install -g npm@10.9.2
 
-      - name: Clear npm cache
-        run: npm cache clean --force
-
-      - name: Test npm install
-        run: npm ci --dry-run
-
-      - name: Debug npm auth2
+      - name: Reset npm environment
         run: |
+          rm -rf ~/.npmrc
+          npm cache clean --force
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          npm config fix
-          cat ~/.npmrc
-          npm whoami
-        
-      - name: Authenticate with npm
-        run: |
-          npm config set registry https://registry.npmjs.org/
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
           echo "always-auth = true" >>  ~/.npmrc
-
-      - name: Check .npmrc content
-        run: cat ~/.npmrc || echo ".npmrc file is missing"
+          cat ~/.npmrc || echo ".npmrc file is missing"
+          npm whoami
 
       - name: Doctor
         run: npm doctor
-
-      - name: Who am I
-        run: npm whoami
 
       - name: Install dependencies
         run: npm install
