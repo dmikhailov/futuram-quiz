@@ -50,6 +50,9 @@ jobs:
       - name: Check .npmrc content
         run: cat ~/.npmrc || echo ".npmrc file is missing"
 
+      - name: Set registry
+        run: npm config set registry "https://registry.npmjs.com/"
+
       - name: Doctor
         run: npm doctor
 
