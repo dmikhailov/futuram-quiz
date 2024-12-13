@@ -39,6 +39,9 @@ jobs:
       - name: Check .npmrc content
         run: cat ~/.npmrc || echo ".npmrc file is missing"
 
+      - name: Doctor
+        run: npm doctor
+
       - name: Install dependencies
         run: npm install
 
