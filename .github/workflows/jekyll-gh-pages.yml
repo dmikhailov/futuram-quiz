@@ -44,8 +44,8 @@ jobs:
         
       - name: Authenticate with npm
         run: |
-           npm config set registry https://registry.npmjs.org/
-           echo "//registry.npmjs.org/:_authToken=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" >> ~/.npmrc
+          export NPM_TOKEN=your-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
+          npm login --registry=https://registry.npmjs.org/ --auth-type=legacy --scope=@your-scope
 
       - name: Check .npmrc content
         run: cat ~/.npmrc || echo ".npmrc file is missing"
